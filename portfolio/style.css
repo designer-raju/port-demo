@@ -1,0 +1,252 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+li{
+ list-style: none;
+ 
+}
+a{
+ text-decoration: none;
+}
+header{
+ display: grid;
+ grid-column: 1fr 1fr;
+ position: relative;
+}
+header .color{
+ position: absolute;
+ filter: blur(100px);
+}
+header .color:nth-child(1){
+ width: 50%;
+ height: 300px;
+ top:200px;
+ left:0;
+ background: #FF5B00;
+}
+header .color:nth-child(2) {
+ width: 50%;
+ height: 300px;
+ top: 200px;
+ right: 0;
+ background: #FF0093;
+}
+
+
+/**=========
+header menu section styling
+========**/
+
+
+.main-menu{
+  grid-column: 2 / 11;
+  width: 100%;
+  padding: 0 5%;
+  position: fixed;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  transition: all 0.5s ease;
+
+}
+.main-menu img{
+ width: 50px;
+ height: 50px;
+}
+.main-menu .menu{
+  display:flex;
+  justify-content: flex-end;
+ 
+}
+.main-menu .menu li{
+  margin-left: 30px;
+ }
+.main-menu .menu li a{
+  color: var(--color-black);
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+.main-menu .menu li a:hover{
+  color: #FFC178;
+}
+.main-menu .menu .active{
+  color: var(--color-yellow);
+}
+.main-menu .menu li:first-child a{
+ margin-left: 0;
+}
+.main-menu .menu-btn{
+ display:none;
+ font-size: 23px;
+}
+
+
+/*===========
+login section styling
+=========*/
+
+
+.login-form{
+ display:flex;
+ min-height: 400px;
+ justify-content: center;
+ align-items: center;
+ padding:60px;
+}
+.login-form .box{
+ position:relative;
+}
+.login-form .box-1{
+ position: absolute;
+ backdrop-filter: 5px;
+ box-shadow: 0 25px 45px rgba(255,255,255,0.8);
+ border: 1px solid rgba(255,255,255,0.5);
+ border-bottom: 1px solid rgba(255,255,255,0.05);
+ border-right: 1px solid rgba(255,255,255,0.05);
+ border-radius: 6px;
+ animation: animate 10s linear infinite;
+ animation-delay: calc(-1 * var(--i));
+}
+@keyframes animate{
+ 0%,100%{
+  transform: translateY(-60px);
+ }
+ 50%{
+  transform: translateY(60px);
+ }
+}
+.login-form .box-1:nth-child(1){
+ width:100px; 
+ height: 100px;
+ top: 10px;
+ left: 28px
+}
+.login-form .box-1:nth-child(2) {
+ width: 100px;
+ height: 100px;
+ top: 45px;
+ right: 35px
+}
+.login-form .box-1:nth-child(3) {
+ width: 100px;
+ height: 100px;
+ bottom: 10px;
+ right: 55px;
+}
+.login-form .box .form{
+ position: relative;
+ display:grid;
+ width: 330px;
+ grid-row: 1fr 1fr 1fr;
+ grid-column: 1fr;
+ border:1px solid rgba(255,255,255,0.5);
+ border-right: 1px solid rgba(0,0,0,0.2);
+ border-bottom: 1px solid rgba(0,0,0,0.2);
+ border-radius: 10px;
+ justify-content: center;
+ padding: 40px 20px;
+ box-shadow: 0 18px 25px rgba(0,0,0,1);
+ background: rgba(255,255,255,0.05);
+ color:#ffffff;
+}
+.login-form .box .form h2{
+ font-size:28px;
+ margin-bottom: 10px;
+position: relative
+}
+.login-form .box .form h2:before{
+  content: "";
+  position: absolute;
+   width: 100px;
+   height:5px;
+   background: #ffffff;
+   top:35px;
+   left: 0;
+   border-radius: 10px;
+}
+.login-form .box .form input{
+ padding: 8px;
+ margin-top: 30px; 
+ border-radius: 10px;
+ border:1px solid #ffffff;
+ position: relative;
+ font-size: 18px;
+ outline: none;
+ 
+}
+.login-form .box .form input::placeholder{
+   font-size: 18px
+}
+.login-form .box .form input[type="submit"]{
+ width:100px;
+ background: #ffffff;
+ color:#000;
+}
+.login-form .form .forget{
+ position: relative;
+ margin-top:15px;
+ font-size: 18px;
+ color:#777777;
+}
+.login-form .box .form .forget a{
+ color: #000;
+}
+.login-form .box .form .forget a:hover{
+ color: #ffffff;
+ text-decoration: underline;
+}
+
+/*==============
+reasponsive menu ber
+===============*/
+
+
+@media (max-width: 768px){
+ .main-menu .menu{
+  position: fixed;
+   width:100%;
+   height: 100vh;
+   background: #555;
+   top: 0;
+   left: -100%;
+   display: block;
+   text-align: center;
+   padding-top: 80px;
+   transition: all 0.5s ease;
+   z-index: 9;
+  }
+  .main-menu .menu.active{
+   left:0;
+  }
+   .main-menu .menu-btn {
+   display: block;
+    z-index: 9999;
+   }
+   .main-menu .menu-btn i.active:before{
+    content:"\f00d";
+   }
+
+ .main-menu .menu li{
+  margin-top:35px;
+ }
+ 
+ .main-menu .menu li:first-child a{
+  margin-left: 10px;
+  }
+.login-form .box .form input[type="submit"] {
+  width: 100px;
+  background: #000;
+  color: #fff;
+ }
+
+}
